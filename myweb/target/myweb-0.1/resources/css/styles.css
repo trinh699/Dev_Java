@@ -1,0 +1,50 @@
+* {
+    box-sizing: content-box;
+    margin: 0px;
+}
+
+#navlink{
+    font-size: 18px;
+}
+.navlink{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+body .ui-selectonemenu{
+    width: 150px;
+}
+
+/*Sale off*/
+body .ui-panel .ui-panel-content {
+    border: 0px;
+    padding: 10px 20px;
+    width: 250px;
+}
+body .ui-datagrid .ui-datagrid-content{
+    border: 0px;
+}
+/*footer*/
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.content{
+    margin-top: 30px;
+}
+
+.thumbnail {
+    width: 185px;
+    max-height: 210px;
+}
+
+
+
