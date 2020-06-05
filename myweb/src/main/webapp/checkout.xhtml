@@ -14,11 +14,10 @@
         <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
     </h:head>
     <h:body>
-        <b:navBar fluid="true" style="border: 0px; margin-bottom: 0px;">
-
+        <b:navBar fluid="true" style="border: 0px; margin-bottom: 0px;background-color: #448ac2; border-radius: 0px;">
             <b:navbarLinks>
                 <b:navLink href="#"><a style="font-weight: bold; font-size: 33px; margin-top: -15px;color: #40bb70 ">DIA<span style="color: #005A51">MOND</span></a></b:navLink>
-                <b:navLink style="margin-top: 5px;">
+                <b:navLink style="margin-left: 100px;margin-top: 3px;">
                     <b:selectOneMenu>
                         <f:selectItem itemLabel="-All categroly-" itemValue="" />
                         <f:selectItem itemLabel="Chick lit" itemValue="Chick lit" />
@@ -31,40 +30,40 @@
                     </b:selectOneMenu> 
                 </b:navLink>
             </b:navbarLinks>
-            <form   class="navbar-form navbar-left hidden-md hidden-sm hidden-xs" role="search">
-                <div class="form-group" style="margin-top: 19px; ">
+            <form   class="navbar-form navbar-left hidden-md hidden-sm hidden-xs" role="search" style="margin: 0px">
+                <div class="form-group" style="margin-top: 22px; ">
                     <input type="text" class="form-control" placeholder="Search"/>
                 </div>
-                <button style="margin-top: 19px; " type="submit" class="btn btn-default">Search</button>
+                <button style="margin-top: 22px; " type="submit" class="btn btn-default">Search</button>
             </form>
             <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
             <b:navbarLinks pull="right"><b:navLink value="" href="#"></b:navLink></b:navbarLinks>
             <b:navbarLinks pull="right" styleClass="hidden-xs">
-                <b:button style="margin-top: 28px; margin-left: 10px; margin-right: 10px" look="info" icon="shopping-cart" size="2x"/>
-                <b:button style="margin-top: 28px; margin-left: 10px; margin-right: 10px" href = 'login.xhtml' look="info" value="Login"/>
-                <b:button style="margin-top: 28px; margin-left: 10px; margin-right: 10px" href = 'register.xhtml' look="info" value="Signup"/>
+                <b:button style="margin-top: 25px; margin-left: 10px; margin-right: 10px" href = 'checkout.xhtml' look="info" icon="shopping-cart" size="2x"/>
+                <b:button style="margin-top: 25px; margin-left: 10px; margin-right: 10px" href = 'login.xhtml' look="info" value="Login"/>
+                <b:button style="margin-top: 25px; margin-left: 10px; margin-right: 10px" href = 'signup.xhtml' look="info" value="Signup"/>
             </b:navbarLinks>
         </b:navBar>
-        <div class="ui-g-12" id="navlink">
+        <div class="ui-g" id="navlink">
             <div class="ui-g-1"></div>
             <div class="ui-g-1"></div>
             <div class="ui-g-8">
-                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'index.xhtml'">
                     <h:outputText value="Home" />
                 </h:commandLink>
-                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'shop.xhtml'">
                     <h:outputText value="Shop" />
                 </h:commandLink>
-                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                <h:commandLink styleClass="navlink" onclick="window.location.href = '#'">
                     <h:outputText value="Sale HOT" />
                 </h:commandLink>
-                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                <h:commandLink styleClass="navlink" onclick="window.location.href = '#'">
                     <h:outputText value="Bestseller" />
                 </h:commandLink>
-                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                <h:commandLink styleClass="navlink" onclick="window.location.href = '#'">
                     <h:outputText value="New Releases" />
                 </h:commandLink>
-                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                <h:commandLink styleClass="navlink" onclick="window.location.href = '#'">
                     <h:outputText value="Coming Soon" />
                 </h:commandLink>
             </div>

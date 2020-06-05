@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+    <h:head>
+        <title>My Web</title>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <h:outputStylesheet name="styles.css" library="css"/>
+    </h:head>
+
+    <h:body>
+        <!--NAVBAR-->
+        <h:form>
+            <p:menubar class="nav-bar">
+                <p:menuitem style="max-width: 50px">
+                    <h:graphicImage value="resources/images/logo.jpg" style="width: 100%"/>
+                </p:menuitem> 
+                <p:submenu label="Category" style="margin-left: 10em; margin-top:10px; margin-bottom: 10px;">
+                    <p:menuitem value="genre1"/>
+                    <p:menuitem value="genre2"/>
+                    <p:menuitem value="genre3"/>
+                    <p:menuitem value="genre4"/>
+                    <p:menuitem value="genre5"/>
+                    <p:menuitem value="genre6"/>
+                </p:submenu>
+                <p:menuitem style="padding: 0px; margin-top:10px; margin-bottom: 10px;">
+                    <p:inputText placeholder="Search" style="width: 35em;"/>
+                </p:menuitem>
+            </p:menubar>
+        </h:form>
+
+        <!--CONTENT-->
+        <div class="ui-g">
+            <div class="ui-g-12" style="padding: 0px">
+                <div class="ui-g-3"></div>
+                <div class="ui-g-1"><h:outputText value="genre1"/></div>
+                <div class="ui-g-1"><h:outputText value="genre2"/></div>
+                <div class="ui-g-1"><h:outputText value="genre3"/></div>
+                <div class="ui-g-1"><h:outputText value="genre4"/></div>
+                <div class="ui-g-1"><h:outputText value="genre5"/></div>
+                <div class="ui-g-1"><h:outputText value="genre6"/></div>
+                <div class="ui-g-3"></div>
+            </div>
+
+
+            <!--BANNER-->
+            <div class="ui-g-12" style="padding:0px;">
+                <div class="ui-g-1"/>
+                <div class="ui-g-10"><p:separator/></div>
+                <div class="ui-g-1"/>
+            </div>
+
+
+            <!--BANNER-->
+            <div class=" ui-g-2"/>
+            <div class=" ui-g-8">
+                <p:graphicImage value="resources/images/banner1.jpg" style="width: 100%; margin: 3em auto;"/>
+            </div>
+            <div class="ui-g-12">
+                <p:separator/>
+            </div>
+
+            <!--PROMOTIONS-->
+            <div class="ui-g-12">
+                <h:form>
+                    <div class="ui-g">
+                        <div class="ui-g-2" >
+                            <p:graphicImage value="resources/images/promotion1.jpg" style="width: 160px; height: 220px;"/>
+                        </div>
+                        <div class="ui-g-10" >
+                            <p:carousel styleClass="myCarousel" value="#{homePageBean.promotions.get(0)}" var="book" numVisible="8" circular="true" style="height: 100%">
+                                <div class="ui-g">
+                                    <div class="ui-g-2">
+                                        <p:graphicImage value="#{book.cover}"/>
+                                    </div>
+                                </div>
+                            </p:carousel>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+            <div class="ui-g-12">
+                <p:separator/>
+            </div>
+            <div class="ui-g-12">
+                <h:form>
+                    <div class="ui-g">
+                        <div class="ui-g-2" >
+                            <p:graphicImage value="resources/images/promotion2.jpg" style="width: 180px; height: 220px;"/>
+                        </div>
+                        <div class="ui-g-10" >
+                            <p:carousel styleClass="myCarousel" value="#{homePageBean.promotions.get(1)}" var="book" numVisible="8" circular="true" style="height: 100%">
+                                <div class="ui-g">
+                                    <div class="ui-g-2">
+                                        <p:graphicImage value="#{book.cover}"/>
+                                    </div>
+                                </div>
+                            </p:carousel>
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+
+</html>
+

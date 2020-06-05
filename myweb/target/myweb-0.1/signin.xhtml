@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+
+    <h:head>
+        <title>Login</title>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <h:outputStylesheet name="styles.css" library="css"/>
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+    </h:head>
+
+    <h:body>
+        <ui:insert  name="header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>
+
+        <br></br>
+        <br></br>
+        <br></br>
+
+        <!--LOGIN WINDOW-->
+        <div id="login-window">
+            <div class="ui-g-12">
+                <h2>SIGN IN</h2>
+            </div>
+
+            <div class="ui-g-12">
+                <h:form styleClass="form-login">
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+                                <p:inputText placeholder="Email" value="#{userPageBean.email}"/>  
+                            </div>
+                        </div>
+
+                        <div class="ui-g-12">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="pi pi-key"></i></span>
+                                <p:password placeholder="Password" value="#{userPageBean.password}"/>      
+                            </div>
+                        </div>
+                        <div class="ui-g-3" />
+                        <div class="ui-g-6">
+                            <p:commandButton value="Sign in" id="signin" action="#{userPageBean.signIn()}"/>
+                        </div>
+                        <div class="ui-g-3" />
+                        <div class="ui-g-1" />
+                        <div class="ui-g-10" style="text-align: center;">
+                            <span><p:outputLabel value="Don't have an account?" /></span>
+                            <span>
+                                <p:commandLink action="signup">
+                                    <h:outputText value="Create one now"/>
+                                </p:commandLink>
+                            </span>
+                        </div>
+                        <div class="ui-g-1" />
+                    </div>
+                </h:form>
+            </div>
+        </div>
+                        
+        <br></br><br></br><br></br>
+        
+        <!--FOOTER-->
+        <ui:insert name="footer">
+            <ui:include src="footer.xhtml"/>
+        </ui:insert>
+    </h:body>
+</html>

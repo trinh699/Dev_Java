@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="styles.css" library="css"/>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+    </h:head>
+    <h:body>
+        <!--HEADER-->
+        <ui:insert name="header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>
+        <br></br><br></br>
+        <!-- content -->
+        <div class="ui-g-fluid" id="info-window">
+            <div class="ui-g-12" >
+                <div class="ui-g-2"></div>
+                <div class="ui-g-6" style="background-color: #bbf2f2; padding:0px;" >
+                    <h1>USER INFORMATION</h1>
+                </div>
+                <div class="ui-g-4"></div>
+            </div>
+
+            <div class="ui-g-12">
+                <div class="ui-g-1"></div>
+                <div class="ui-g-8" style="background-color: #edffff; border-color: black;">
+                    <h:form>
+                        <p:panelGrid columns="2" contentStyleClass="ui-fluid profilecontentgrid" class="profilegrid">
+                            <p:outputLabel for="fullname" value="Full Name" style="font-weight: bold;"/>
+                            <p:inputText id="fullname" value="#{userPageBean.name}"/>
+
+                            <p:outputLabel for="email" value="Email" style="font-weight: bold;"/>
+                            <p:inputText id="email" value="#{userPageBean.email}"/>
+
+                            <p:outputLabel for="address" value="Adress" style="font-weight: bold;"/>
+                            <p:inputText id="address" value="#{userPageBean.address}"/>
+
+                            <p:outputLabel for="phonenumber" value="Phone Number" style="font-weight: bold;"/>
+                            <p:inputText id="phonenumber" value="#{userPageBean.phone}"/>
+
+                            <p:outputLabel for="password" value="Password" style="font-weight: bold;"/>
+                            <p:inputText id="password" value="#{userPageBean.password}"/>
+                        </p:panelGrid>
+                        <p:commandButton value="Update account" action="#{userPageBean.updateAccount()}"/>
+                    </h:form>
+                </div>
+                <div class="ui-g-1"></div>
+                <div class="ui-g-1">
+                    <h:form>
+                        <p:menu style="background-color: mediumaquamarine; width: 100%;">
+                            <p:menuitem value ="My Order" url="#" />
+                            <p:menuitem value ="My library" url="#" />
+                            <p:menuitem value ="My Reviews" url="#"/>
+                            <p:menuitem value ="Sign out" action="#{userPageBean.signOut()}" update="navigation-bar-form"/>
+                        </p:menu>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+        <br></br><br></br>
+        <!--FOOTER-->
+        <ui:insert name="footer">
+            <ui:include src="footer.xhtml"/>
+        </ui:insert>
+
+    </h:body>
+</html>
+

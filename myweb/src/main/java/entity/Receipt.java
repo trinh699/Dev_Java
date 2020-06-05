@@ -1,7 +1,8 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,16 +12,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "receipt")
+@NamedQueries({
+    @NamedQuery(name = "Receipt.getAllReceipts", query = "SELECT r FROM Receipt r")
+})
 public class Receipt implements Serializable {
     private static final long serialVersionUID = -1737859893948370664L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "orderid")
     private Integer orderid;
     @Column(name = "orderdate")
@@ -32,12 +38,12 @@ public class Receipt implements Serializable {
     // Non-accessed
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userid")
-    private User orderUser;
+    private User orderUser = new User();
 
-    @OneToMany(mappedBy = "detailOrder", cascade = CascadeType.ALL)
-    Set<OrderDetail> orderDetails;
+    @OneToMany(mappedBy = "detailOrder", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 
-    // Constructors
+    // Constructors & Methods
     public Receipt() {
     }
 
@@ -47,6 +53,14 @@ public class Receipt implements Serializable {
         this.total = total;
     }
 
+    public void setUser(User user) {
+        orderUser = user;
+    }
+
+    public void addOrderDetail(OrderDetail detail) {
+        orderDetails.add(detail);
+    }
+    
     // Accessors
     public Integer getOrderid() {
         return orderid;
@@ -84,11 +98,11 @@ public class Receipt implements Serializable {
         return orderUser;
     }
 
-    public Set<OrderDetail> getOrderDetails() {
+    public List<OrderDetail> getOrderDetails() {
         return orderDetails;
     }
 
-    public void setOrderDetails(Set<OrderDetail> orderDetails) {
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
         this.orderDetails = orderDetails;
     }
 

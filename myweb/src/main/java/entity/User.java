@@ -1,11 +1,13 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -15,12 +17,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user")
 @NamedQueries({
-    @NamedQuery(name = "User.verifyLogin", query = "SELECT u FROM User u WHERE u.userMail = :mail AND u.userPassword = :pass")
-})
+        @NamedQuery(name = "User.verifyLogin", query = "SELECT u FROM User u WHERE u.userMail = :mail AND u.userPassword = :pass"),
+        @NamedQuery(name = "User.getAllUsers", query = "SELECT u FROM User u")
+     })
 public class User implements Serializable {
     private static final long serialVersionUID = -5150606925567750371L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer userId;
     private String userName;
     private String userPassword;
@@ -29,13 +33,30 @@ public class User implements Serializable {
     private String userMail;
 
     @OneToMany(mappedBy = "collectionUser", cascade = CascadeType.ALL)
-    private List<BookCollection> userCollections;
+    private List<BookCollection> userCollections = new ArrayList<BookCollection>();
 
     @OneToMany(mappedBy = "reviewUser", cascade = CascadeType.ALL)
-    private List<Review> userReviews;
+    private List<Review> userReviews = new ArrayList<Review>();
 
-    @OneToMany(mappedBy = "orderUser", cascade = CascadeType.ALL)
-    private Set<Receipt> userReceipts;
+    @OneToMany(mappedBy = "orderUser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Receipt> userReceipts = new ArrayList<Receipt>();
+
+    // Constructor
+    public User() {
+    }
+
+    public User(String userName, String userPassword, String userAddress, String userPhone, String userMail) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userAddress = userAddress;
+        this.userPhone = userPhone;
+        this.userMail = userMail;
+    }
+
+    public void addReceipt(Receipt receipt) {
+        userReceipts.add(receipt);
+        receipt.setUser(this);
+    }
 
     public Integer getUserId() {
         return userId;
@@ -99,6 +120,14 @@ public class User implements Serializable {
 
     public void setUserReviews(List<Review> userReviews) {
         this.userReviews = userReviews;
+    }
+
+    public List<Receipt> getUserReceipts() {
+        return userReceipts;
+    }
+
+    public void setUserReceipts(List<Receipt> userReceipts) {
+        this.userReceipts = userReceipts;
     }
 
 }

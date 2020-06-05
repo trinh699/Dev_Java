@@ -1,9 +1,7 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -37,15 +35,15 @@ public class Book implements Serializable {
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "book_genre", joinColumns = @JoinColumn(name = "bookid"), inverseJoinColumns = @JoinColumn(name = "genreid"))
-    private Set<Genre> bookGenreList = new HashSet<>();
+    private List<Genre> bookGenreList;
 
     // Non-accessed
     @ManyToMany(mappedBy = "collectionBooks", cascade = CascadeType.PERSIST)
     private List<BookCollection> bookCollections;
-    
+
     // Non-accessed
     @OneToMany(mappedBy = "orderBook")
-    private Set<OrderDetail> bookOrders;
+    private List<OrderDetail> bookOrders;
 
     public Book() {
     }
@@ -135,11 +133,11 @@ public class Book implements Serializable {
         this.description = description;
     }
 
-    public Set<Genre> getBookGenreList() {
+    public List<Genre> getBookGenreList() {
         return bookGenreList;
     }
 
-    public void setBookGenreList(Set<Genre> bookGenreList) {
+    public void setBookGenreList(List<Genre> bookGenreList) {
         this.bookGenreList = bookGenreList;
     }
 
@@ -152,11 +150,36 @@ public class Book implements Serializable {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Book))
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((bookId == null) ? 0 : bookId.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
             return false;
-        Book other = (Book) object;
-        return this.bookId.equals(other.bookId);
+        if (getClass() != obj.getClass())
+            return false;
+        Book other = (Book) obj;
+        if (bookId == null) {
+            if (other.bookId != null)
+                return false;
+        } else if (!bookId.equals(other.bookId))
+            return false;
+        return true;
+    }
+
+    public List<BookCollection> getBookCollections() {
+        return bookCollections;
+    }
+
+    public List<OrderDetail> getBookOrders() {
+        return bookOrders;
     }
 
 }

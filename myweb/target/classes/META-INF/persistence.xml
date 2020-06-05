@@ -4,7 +4,7 @@
     
     <persistence-unit name="MyUnits" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <jta-data-source> jdbc/MyWebDatasource</jta-data-source>
+        <jta-data-source>jdbc/MyWebDatasource</jta-data-source>
         <class>entity.Book</class>
         <class>entity.BookCollection</class>
         <class>entity.Genre</class>
@@ -22,15 +22,5 @@
         </properties>
     </persistence-unit>
     
-    <!-- <persistence-unit name="TestUnits">
-        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <class>entity.TestBook</class>
-        <class>entity.TestBookCollection</class>
-        <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/test?useSSL=false"/>
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="7699" />
-        </properties>
-    </persistence-unit> -->
+
 </persistence>

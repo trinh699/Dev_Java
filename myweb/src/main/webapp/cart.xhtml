@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <title>My Web</title>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <h:outputStylesheet name="styles.css" library="css"/>
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+    </h:head>
+    <h:body>
+        <ui:insert  name="header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>
+
+        <h:form>
+            <p:dataTable value="#{cartPageBean.bookList}" var="book" id="cart">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title" />
+                    </f:facet>
+                    <h:outputText value="#{book.title}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Quantity" />
+                    </f:facet>
+                    <h:outputText value="#{cartPageBean.bookQuantityList[book]}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Set Quantity" />
+                    </f:facet>
+                    <p:spinner value="#{cartPageBean.bookQuantityList[book]}" min="1" max="10"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Remove this item" />
+                    </f:facet>
+                    <h:commandButton value="remove book" action="#{cartPageBean.removeBook}">
+                        <f:setPropertyActionListener target="#{cartPageBean.requestBookId}" value="#{book.bookId}"/>
+                    </h:commandButton>
+                </p:column>
+            </p:dataTable>
+            <p:commandButton value="Update cart" action="#{cartPageBean.updateCart()}"/>
+            <p:commandButton value="Remove all" action="#{cartPageBean.removeAll()}"/>
+            <p:commandButton value="Check out" action="#{cartPageBean.buy()}"/>
+        </h:form>
+
+        <!--FOOTER-->
+        <ui:insert name="footer">
+            <ui:include src="footer.xhtml"/>
+        </ui:insert>
+    </h:body>
+</html>
+

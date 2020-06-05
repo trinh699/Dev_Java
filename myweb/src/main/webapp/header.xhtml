@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <div class="container-fluid">
+                <!--HEAD BAR-->
+                <div id="head-bar" class="ui-g">
+                    <!--                    <div class="ui-g-0 ui-lg-1" />-->
+                    <div class="ui-g-12 ui-md-6 ui-lg-6" style="padding-left: 20px">
+                        <span><i class="fa fa-envelope"></i> hello@colorlib.com</span>
+                        <spam>|</spam>
+                        <span>Free Shipping for all Order of $99</span>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-6" style="text-align: right;">
+                        <div class="ui-g-12 ui-md-11 ui-lg-11" style = "padding: 0px;">
+                            <span><a href="#"><i class="fa fa-facebook"></i></a></span>
+                            <span><a href="#"><i class="fa fa-twitter"></i></a></span>
+                            <span><a href="#"><i class="fa fa-linkedin"></i></a></span>
+                        </div>
+                        <div class="ui-g-0 ui-md-0 ui-lg-1"></div>
+                    </div>
+                    <!--<div class="ui-g-0 ui-lg-1" />-->
+                </div>
+
+                <!--NAVIGATION BAR-->
+                <h:form id="navigation-bar-form">
+                    <div id="navigation-bar" class="ui-g ui-fluid">
+                        <div class="ui-g-12 ui-md-3 ui-lg-2" style="padding: 1rem 0rem 0rem 2rem;">
+                            <p:commandLink value="RUSTIC CORNER" 
+                                           style="font-weight: bold; font-size: 2.5rem; color: black; text-decoration: none;" 
+                                           action="welcome.xhtml?faces-redirect=true"/>
+                        </div>
+                        <div class="ui-g-0 ui-lg-1" ></div>
+                        <div class="ui-g-12 ui-md-2 ui-lg-1">
+                            <p:selectOneMenu effectSpeed="fast" styleClass="search-option">
+                                <f:selectItem itemLabel="Title" itemValue="bookTitle" />
+                                <f:selectItem itemLabel="Author" itemValue="bookAuthor" />
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="ui-g-12 ui-md-5">
+                            <p:inputText id="search-bar"/>
+                        </div>
+                        <div class="ui-g-12 ui-md-1">
+                            <p:commandButton value="Seach" action="list.xhtml?faces-redirect=true"/>
+                        </div>
+                        <div class="ui-g-12 ui-md-6 ui-lg-1">
+                            <p:commandButton icon="pi pi-shopping-cart" action="cart.xhtml?faces-redirect=true" value="Cart"/>
+                        </div>
+                        <div class="ui-g-12 ui-md-6 ui-lg-1">
+                            <p:commandButton icon="pi pi-user" action="#{userPageBean.isLoggedIn()}" value="#{userPageBean.name}"/>
+                        </div>
+                    </div>
+                </h:form>
+
+                <!--NAVIGATION LINK-->
+                <h:form>
+                    <div class="ui-g">
+                        <div class="ui-g-2"></div>
+                        <div class="ui-g-2">
+                            <p:commandLink>
+                                <h:outputText value="promotion"/>
+                            </p:commandLink>
+                        </div>
+                        <div class="ui-g-2">
+                            <p:commandLink>
+                                <h:outputText value="promotion"/>
+                            </p:commandLink>
+                        </div>
+                        <div class="ui-g-2">
+                            <p:commandLink>
+                                <h:outputText value="promotion"/>
+                            </p:commandLink>
+                        </div>
+                        <div class="ui-g-2">
+                            <p:commandLink>
+                                <h:outputText value="promotion"/>
+                            </p:commandLink>
+                        </div>
+                        <div class="ui-g-2"></div>
+                    </div>
+                </h:form>
+            </div>
+        </ui:composition>
+    </h:body>
+</html>
+

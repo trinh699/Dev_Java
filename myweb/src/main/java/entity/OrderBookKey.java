@@ -35,18 +35,33 @@ public class OrderBookKey implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (!(obj instanceof OrderBookKey)) {
+        if (this == obj)
+            return true;
+        if (obj == null)
             return false;
-        }
-        OrderBookKey o = (OrderBookKey) obj;
-        return o.getBookid().equals(o.getBookid()) && o.getOrderid().equals(o.getOrderid());
+        if (getClass() != obj.getClass())
+            return false;
+        OrderBookKey other = (OrderBookKey) obj;
+        if (bookid == null) {
+            if (other.bookid != null)
+                return false;
+        } else if (!bookid.equals(other.bookid))
+            return false;
+        if (orderid == null) {
+            if (other.orderid != null)
+                return false;
+        } else if (!orderid.equals(other.orderid))
+            return false;
+        return true;
     }
 
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (this.getOrderid() != null ? this.orderid.hashCode() : 0);
-        return hash;
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((bookid == null) ? 0 : bookid.hashCode());
+        result = prime * result + ((orderid == null) ? 0 : orderid.hashCode());
+        return result;
     }
 
 }

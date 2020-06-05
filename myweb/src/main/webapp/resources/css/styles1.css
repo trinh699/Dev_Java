@@ -1,0 +1,282 @@
+* {
+    box-sizing: content-box;
+    margin: 0px;
+}
+
+#navlink{
+    font-size: 18px;
+}
+.navlink{
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+body .ui-selectonemenu{
+    width: 150px;
+}
+
+/*Sale off*/
+body .ui-panel .ui-panel-content {
+    border: 0px;
+    padding: 10px 20px;
+    width: 250px;
+}
+body .ui-datagrid .ui-datagrid-content{
+    border: 0px;
+}
+/*footer*/
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.content{
+    margin-top: 30px;
+}
+
+.thumbnail {
+    width: 185px;
+    max-height: 210px;
+}
+
+
+
+/*
+*wishlist page
+*lybrary page
+*search page
+1*/
+/* container*/
+.container{
+    text-align: center;
+}
+.container .searchcontent{
+   
+}
+/* side bar */
+.sidebar {
+    background-color: white;
+    text-align: left;
+    color:lightgrey;
+    display: block;
+    height: 80%;
+
+    margin-top: 100px;
+    /*margin-left: 100px;*/
+}
+.sidebar .sidelink{
+    display: block;
+    font-size: 25px;
+}
+
+/*side bar name*/
+.sidebar .sidename2{
+    display: block;
+    font-size: 37px;
+    text-align: center;
+    background-color:grey;
+    padding:10px 0px;
+    margin-top: 43px;
+    margin-bottom: 0px;
+    /*width: 250px;*/
+}
+/*side bar border*/
+.sidebar .ui-menu {
+    border-style: none; 
+    padding-top: 0px;
+    margin-top: 0px;
+}
+/*side bar label text*/
+.sidebar .ui-menu .ui-menu-list .ui-widget-header h3{
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    /*color: blue !important;*/
+}
+/*side bar link height*/
+.sidebar .ui-menu .ui-menuitem-link{
+    line-height: 30px !important;
+    /*background-color: grey !important;*/
+}
+/*side bar link hover width*/
+.sidebar .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link {
+    padding-left: 0px;
+    padding-right: 0px;
+    /*width: 250px;*/
+    /*background-color: yellow !important;*/
+}
+/*side bar link text*/
+.sidebar .ui-menu .ui-menuitem-text{
+    margin-left: 50px !important;
+    /*color: red !important;*/
+}
+/*top label padding*/
+/*.sidebar .ui-menu-list .sidename{
+    padding-top: 0px !important;
+}
+.sidebar .ui-menu-list{
+    padding-top: 0px !important;
+}
+*/
+/*side bar label width*/
+/*.sidebar .ui-menu .ui-menu-list .ui-widget-header{
+    width: 250px;
+    background-color: blue !important;
+}*/
+/*.ui-menu-list {
+     padding: 26px !important;
+     padding-left: 100px !important;
+ }
+*/
+/*
+scroll view
+.sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+.sidebar::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background:grey; 
+    border-radius: 10px;
+}
+*/
+
+
+
+
+/*
+*profile page
+*/
+/*profile sidebar*/
+.sidebar2{
+    margin-top: 100px;
+    display: block;
+    border-style: none;
+    background:  mediumaquamarine;
+}
+/*profile sidebar border*/
+.sidebar2 .ui-menu{
+    border-style: none;
+}
+/*profile sidebar text*/
+.sidebar2 .ui-menu .ui-menuitem-text{
+    font-size: 25px;
+    font-weight: 600;
+    color: white !important;
+}
+/*profile sidebar padding*/
+.sidebar2 .ui-menu .ui-menu-list{
+    padding-left: 20px !important;
+    text-align: left !important;
+}
+/*profile sidebar height*/
+.sidebar2 .ui-menu .ui-menu-list .ui-menuitem{
+    height: 80px;
+    width: 320px
+    /*font-size: 25px;*/
+}
+/*profile link height*/
+.sidebar2 .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link{
+    line-height: 40px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /*font-size: 25px;
+    font-weight: 600;*/
+}
+.sidebar2 .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link.ui-state-hover{
+    background-color: mediumaquamarine;
+}
+/*profile wrap*/
+.profilecontent{
+    display: block;
+    background-color: lightgray;
+    height: 500px;
+    padding: 40px 0px 100px;
+    text-align: left !important;
+    margin-left: 30px;
+    margin-bottom: 50px;
+}
+/* profile gridtable*/
+.profilegrid{
+    width: 100%;
+    height: 100%;
+}
+/*grid table border,background*/
+.profilecontent .ui-panelgrid .ui-panelgrid-cell{
+    border-style: none;
+    background-color: lightgray !important;
+}
+/* grid input border, background*/
+.profilecontent .ui-inputfield{
+    border-color: lightgray;
+    border-radius: 20px;
+    background-color: #ccffff;
+    width: 87%;
+}
+/* grid text size, color*/
+.profilecontent .ui-widget .ui-widget:not(.pi){
+    font-size: 20px;
+    font-weight: 600;
+    color: grey;
+}
+
+
+
+
+/*
+** login/signup page
+*/
+/*login container*/
+.login{
+    font-size: 25px;
+    font-weight: 400;
+    height: 500px;
+}
+/*login form*/
+
+.form-login {
+     margin: 50px auto;
+     max-width: 500px;               
+    /* padding: 15px;*/
+    background-color: #add;
+    padding: 50px 75px 100px;
+}
+/*login button*/
+.button-login{
+    margin-left: 95px !important;
+    width: 120px; 
+    height: 40px;
+    font-size: 17px !important; 
+    font-weight: bold !important;
+    padding-bottom: 5px !important;
+}
+/*login input*/
+.login .ui-inputgroup{
+    height: 60px;
+    padding: 10px;
+}
+/*login input width*/
+.login .ui-inputfield{
+    width: 100%;
+}
+/*login text input*/
+.login .ui-widget:not(.pi), .login.ui-widget .ui-widget:not(.pi){
+    font-size: 15px;
+    /*color: red !important;*/
+}
+.button-signup{
+    margin-left: 25px !important;
+    width: 120px; 
+    height: 40px;
+    font-size: 15px !important; 
+    font-weight: bold !important;
+    padding-bottom: 5px !important;
+}

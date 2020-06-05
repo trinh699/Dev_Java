@@ -4,18 +4,35 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+
     <context-param>
         <param-name>net.bootfaces.blockUI</param-name>
         <param-value>true</param-value>
     </context-param>
+
     <context-param>
         <param-name>primefaces.THEME</param-name>
         <param-value>nova-colored</param-value>
     </context-param>
+
+
+    <!-- PAYPAL -->
     <context-param>
-        <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
-        <param-value>0</param-value>
+        <param-name>paypal-business</param-name>
+        <param-value>sb-iuqjf1834523@business.example.com</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>paypal-client-id</param-name>
+        <param-value>AWpFhg_BGhjgm0VpQPK_1-H2poQWpNoFUnZ4kX4ptAbD-C1YSeSgQNm0iCmOEDIbtfCmbCWZpA14Jpbg</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>paypal-secret</param-name>
+        <param-value>EA8v97Pc9N049U16IOHkw7SqAzkY7SJFNFqiInm-2CsiOLBwgBQ3mHFUESetpxSrFcoYxZ_Bz78T_F-X</param-value>
+    </context-param>
+
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -25,6 +42,7 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

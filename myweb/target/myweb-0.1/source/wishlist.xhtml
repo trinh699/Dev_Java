@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet name="styles.css" library="css"/>
+        <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/all.min-jsf.css" />
+        <h:outputStylesheet library="webjars" name="font-awesome/5.12.0/css/v4-shims.min-jsf.css" />
+    </h:head>
+    <h:body>
+        <!--menubar-->
+         <b:navBar fluid="true" style="border: 0px; margin-bottom: 0px;">
+
+            <b:navbarLinks>
+                <b:navLink href="#"><a style="font-weight: bold; font-size: 33px; margin-top: -15px;color: #40bb70 ">DIA<span style="color: #005A51">MOND</span></a></b:navLink>
+                <b:navLink style="margin-top: 5px;">
+                    <b:selectOneMenu>
+                        <f:selectItem itemLabel="-All categroly-" itemValue="" />
+                        <f:selectItem itemLabel="Chick lit" itemValue="Chick lit" />
+                        <f:selectItem itemLabel="Anthology" itemValue="Anthology" />
+                        <f:selectItem itemLabel="Alternate history" itemValue="Alternate history" />
+                        <f:selectItem itemLabel="Children's" itemValue="Children's" />
+                        <f:selectItem itemLabel="Comic book" itemValue="Comic book" />
+                        <f:selectItem itemLabel="Crime" itemValue="Crime" />
+                        <f:selectItem itemLabel="Drama" itemValue="Drama" />
+                    </b:selectOneMenu> 
+                </b:navLink>
+            </b:navbarLinks>
+            <form   class="navbar-form navbar-left hidden-md hidden-sm hidden-xs" role="search">
+                <div class="form-group" style="margin-top: 19px; ">
+                    <input type="text" class="form-control" placeholder="Search"/>
+                </div>
+                <button style="margin-top: 19px; " type="submit" class="btn btn-default">Search</button>
+            </form>
+            <!-- Following line is needed for TBS 3.0.1 (panel content overflow issue) -->
+            <b:navbarLinks pull="right"><b:navLink value="" href="#"></b:navLink></b:navbarLinks>
+            <b:navbarLinks pull="right" styleClass="hidden-xs">
+                <b:button style="margin-top: 28px; margin-left: 10px; margin-right: 10px" look="info" icon="shopping-cart" size="2x"/>
+                <b:button style="margin-top: 28px; margin-left: 10px; margin-right: 10px" href = 'login.xhtml' look="info" value="Login"/>
+                <b:button style="margin-top: 28px; margin-left: 10px; margin-right: 10px" href = 'register.xhtml' look="info" value="Signup"/>
+            </b:navbarLinks>
+        </b:navBar>
+        <div class="ui-g" id="navlink">
+            <div class="ui-g-1"></div>
+            <div class="ui-g-1"></div>
+            <div class="ui-g-8">
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                    <h:outputText value="Home" />
+                </h:commandLink>
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                    <h:outputText value="Shop" />
+                </h:commandLink>
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                    <h:outputText value="Sale HOT" />
+                </h:commandLink>
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                    <h:outputText value="Bestseller" />
+                </h:commandLink>
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                    <h:outputText value="New Releases" />
+                </h:commandLink>
+                <h:commandLink styleClass="navlink" onclick="window.location.href = 'register.xhtml'">
+                    <h:outputText value="Coming Soon" />
+                </h:commandLink>
+            </div>
+            <div class="ui-g-1"></div>
+            <div class="ui-g-1"></div>
+        </div>
+        
+        <!--end of menubar-->
+        
+        <!--side bar-->
+        <div class="container">
+            <div class ="ui-g">
+                <div class="ui-g-3">
+                    <div class="sidebar">
+                        <h:form>
+                            <h3 class="sidename2">Filter</h3>
+                            <p:menu style="width:100%">
+                                 <p:submenu label="Format" class="sidelink">
+                                   <p:menuitem value ="Paper back" url="#" />
+                                   <p:menuitem value ="Hard back" url="#" />
+                                   <p:menuitem value ="Ebook" url="#" />
+                                   <p:menuitem value ="Audio book" url="#" />
+                               </p:submenu>
+                               <p:submenu label="Type" class="sidelink">
+                                   <p:menuitem value ="Fiction" url="#" />
+                                   <p:menuitem value ="Non-Fiction" url="#" />
+                                   <p:menuitem value ="Fantasy" url="#" />
+                                   <p:menuitem value ="Si-Fi" url="#" />
+                                   <p:menuitem value ="Horror" url="#" />
+                                   <p:menuitem value ="Reference" url="#" />
+                               </p:submenu>
+                               <p:submenu label="Categories" class="sidelink">
+                                   <p:menuitem value="Action" url="#" />
+                                   <p:menuitem value="Adventure" url="#" />
+                                   <p:menuitem value="Crime" url="#" />
+                                   <p:menuitem value="Drama" url="#" />
+                                   <p:menuitem value="Comic boock" url="#" />
+                                   <p:menuitem value="Chick lit" url="#" />
+                                   <p:menuitem value="Children's" url="#" />
+                                   <p:menuitem value="Anthology" url="#" />
+                                   <p:menuitem value="Alternate history" url="#" />
+                                   <p:menuitem value="Porno" url="#" />
+                                   <p:menuitem value="Star wars" url="#" />
+                               </p:submenu>
+                            </p:menu>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="ui-g-1"></div>
+                <div class="ui-g-8">
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p:outputLabel style="font-weight: bold; font-size: 40px; margin-bottom: 20px; float: right;" value="Your wishlist"/>
+                        </div>
+                    </div>
+                    <h:form>
+                        <p:dataView var="book" value="#{home.promotions.get(1)}" gridIcon="pi pi-th-large" listIcon="pi pi-bars" >
+                            <p:dataViewGridItem>
+                                <p:panelGrid columns="1" style="width: 70%;margin-left: 38px; text-align: center;" styleClass="noBorders">
+                                    <p:graphicImage value="#{book.cover}" width="100%" height="100%"/>
+                                    <p:outputLabel style="font-size: 20px; font-weight: 500;" value="#{book.title}"/>
+                                </p:panelGrid>
+                            </p:dataViewGridItem>
+
+
+                            <p:dataViewListItem>
+                                <div class="ui-g" style="text-align: left;">
+                                    <div class="ui-g-1"></div>
+                                    <div class="ui-g-3">
+                                        <p:graphicImage value="#{book.cover}" width="80%" height="80%"/>
+                                    </div>
+                                    <div class="ui-g-7" style="font-size: 20px; font-weight: 500;">
+                                        <div>#{book.bookId}</div>  
+                                        <br/>
+                                        <div>#{book.title}</div>                       
+                                        <br/>
+                                        <div>#{book.author}</div>                       
+                                        <br/>
+                                    </div>
+                                    <div class="ui-g-1"></div>
+                                </div>
+                            </p:dataViewListItem>
+                        </p:dataView>
+                    </h:form>           
+                </div>
+            </div>
+        </div>
+        <!--FOOTER-->
+        <div style="background-color: #F3F6FA;" class="ui-g-12">
+            <div class="ui-g-1"></div>
+            <div class="ui-g-10">
+                <div class="ui-g-4" style="padding: 70px 70px 0px 70px">
+                    <a style="font-weight: bold; font-size: 33px; color: #40bb70">DIA<span style="color: #005A51">MOND</span></a><br/>
+                    <p:outputLabel value="Address: 60-49 Road 11378 New York" /><br/>
+                    <p:outputLabel value="Phone: +65 11.188.888"/><br/>
+                    <p:outputLabel value="Email: hello@colorlib.com" /><br/>
+                </div>
+                <div class="ui-g-4">
+                    <h4><b>Useful Links</b></h4>
+                    <div class="ui-g-6">
+                        About Us <br/><br/>
+                        About Our Shop<br/><br/>
+                        Secure Shopping<br/><br/>
+                        Delivery infomation<br/><br/>
+                        Privacy Policy<br/><br/>
+                        Our Sitemap <br/><br/>
+                    </div>
+                    <div class="ui-g-6">
+                        Who We Are <br/><br/>
+                        Our Services<br/><br/>
+                        Projects<br/><br/>
+                        Contact<br/><br/>
+                        Innovation<br/><br/>
+                        Testimonials<br/><br/>
+                    </div>
+                </div>
+                <div class="ui-g-4">
+                    <h4><b>Join Our Newsletter Now</b></h4><br/><br/>   
+                    Get E-mail updates about our latest shop and special offers.<br/><br/><br/>
+                    <span class="ui-float-label">
+                        <p:inputText id="float-input"  />
+                        <p:outputLabel value="Email" />
+                        <p:commandButton value="SUBSCRIBE" style="margin-right:20px;" />
+                    </span>
+
+                </div>
+            </div>
+            <div class="ui-g-1"></div>
+        </div>
+    </h:body>
+</html>
+

@@ -1,41 +1,43 @@
 package managedbean;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import ejb.DatabaseOperations;
+import ejb.DatabaseService;
 import entity.Book;
 import entity.BookCollection;
 
-@Named("home")
+@Named
 @SessionScoped
 public class HomePageBean extends BaseBean {
     private static final long serialVersionUID = 4870225850728057511L;
 
     private List<List<Book>> promotions;
     private List<String> collectionNames;
+    @EJB
+    DatabaseService db;
 
-    // Constructor
+    // ------------------------------------------CONSTRUCTOR------------------------------------------
     public HomePageBean() {
         promotions = new ArrayList<List<Book>>();
         collectionNames = new ArrayList<String>();
-        makePromotion();
     }
 
-    // Populate Promotion list
-    private void makePromotion() {
-        List<BookCollection> collections = DatabaseOperations.getPromotedCollections();
+    @PostConstruct
+    private void makePromotion() { // Populate Promotion list
+        List<BookCollection> collections = db.getPromotedCollections();
         for (BookCollection c : collections) {
             promotions.add(c.getCollectionBooks());
             collectionNames.add(c.getCollectionName());
         }
     }
-    // ACCESSOR
+
+    // ------------------------------------------ACCESSOR------------------------------------------
     public List<List<Book>> getPromotions() {
         return promotions;
     }
@@ -43,4 +45,5 @@ public class HomePageBean extends BaseBean {
     public List<String> getKeyList() {
         return collectionNames;
     }
+
 }

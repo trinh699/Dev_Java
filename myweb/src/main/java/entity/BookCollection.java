@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -32,7 +33,7 @@ public class BookCollection implements Serializable {
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "collection_book", joinColumns = @JoinColumn(name = "collectionid"), inverseJoinColumns = @JoinColumn(name = "bookid"))
-    private List<Book> collectionBooks;
+    private List<Book> collectionBooks = new ArrayList<Book>();
 
     // Non-accessed
     @OneToOne(cascade = CascadeType.PERSIST)
@@ -74,6 +75,30 @@ public class BookCollection implements Serializable {
 
     public List<Book> getCollectionBooks() {
         return collectionBooks;
+    }
+
+    public void setIsPromoted(Boolean isPromoted) {
+        this.isPromoted = isPromoted;
+    }
+
+    public void setCollectionBooks(List<Book> collectionBooks) {
+        this.collectionBooks = collectionBooks;
+    }
+
+    public Genre getCollectionGenre() {
+        return collectionGenre;
+    }
+
+    public void setCollectionGenre(Genre collectionGenre) {
+        this.collectionGenre = collectionGenre;
+    }
+
+    public User getCollectionUser() {
+        return collectionUser;
+    }
+
+    public void setCollectionUser(User collectionUser) {
+        this.collectionUser = collectionUser;
     }
 
 }
